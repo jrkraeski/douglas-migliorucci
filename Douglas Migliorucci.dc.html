@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Douglas Migliorucci — Psicólogo Clínico</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #edeae4; color: #2a3330; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+.sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(237,234,228,0.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(65,96,98,0.1); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 32px; margin-bottom: 40px; }
+.footer-bottom { border-top: 1px solid rgba(237,234,228,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-social { display: flex; gap: 24px; align-items: center; }
+.cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.section-center { text-align: center; margin-bottom: 56px; }
+.label-row { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 72px; align-items: start; }
+.method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.atend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+
+@keyframes heroUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.h-label   { animation: heroUp 0.7s ease both 0.20s; }
+.h-title   { animation: heroUp 0.8s ease both 0.36s; }
+.h-tag     { animation: heroUp 0.7s ease both 0.54s; }
+.h-cta     { animation: heroUp 0.7s ease both 0.70s; }
+.h-crp     { animation: heroUp 0.7s ease both 0.84s; }
+.h-photo   { animation: heroUp 0.9s ease both 0.28s; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hero-grid  { grid-template-columns: 1fr; gap: 40px; }
+  .h-photo    { order: -1; max-width: 280px; margin: 0 auto; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .method-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .creds-grid { grid-template-columns: 1fr 1fr; }
+  .atend-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 580px) {
+  .wrap { padding: 0 20px; }
+  .creds-grid { grid-template-columns: 1fr; }
+}
+</style>
+</helmet>
+
+<!-- ─── NAV ─────────────────────────────────────────── -->
+<nav class="sticky-nav">
+  <div class="wrap nav-inner">
+    <a href="#inicio" class="logo-link">
+      <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="12" y1="9" x2="12" y2="30" stroke="#416062" stroke-width="2" stroke-linecap="round"></line>
+        <path d="M6 12 L6 8 M12 10 L12 4 M18 12 L18 8" stroke="#416062" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M6 8 Q12 6 18 8" stroke="#416062" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+        <path d="M12 13 C18 17 18 21 12 25 C6 29 6 30 12 30" stroke="#3e7180" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+      </svg>
+      <div>
+        <div style="font-family: 'Lora', serif; font-weight: 600; font-size: 15px; color: #416062; letter-spacing: -0.02em; line-height: 1.1;">Douglas Migliorucci</div>
+        <div style="font-size: 9px; color: #718c93; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px;">Psicólogo Clínico</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#atuacao" style="font-size: 14px; color: #718c93;" style-hover="color: #416062;">Atuação</a>
+      <a href="#metodo" style="font-size: 14px; color: #718c93;" style-hover="color: #416062;">Método</a>
+      <a href="#atendimento" style="font-size: 14px; color: #718c93;" style-hover="color: #416062;">Atendimento</a>
+    </div>
+    <a href="https://wa.me/5518991288889?text=Ol%C3%A1%2C%20Douglas!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" style="background: #dd6d5c; color: #fff; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 4px; letter-spacing: 0.01em;" style-hover="background: #c4614f;">Agende uma conversa</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────── -->
+<section id="inicio" style="background: #edeae4; padding: 96px 0 88px;">
+  <div class="wrap">
+    <div class="hero-grid">
+      <!-- Copy -->
+      <div>
+        <div class="h-label" style="display: flex; align-items: center; gap: 8px; margin-bottom: 28px;">
+          <span style="display: inline-block; width: 24px; height: 1px; background: #3e7180;"></span>
+          <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #3e7180; font-weight: 500;">Psicólogo Clínico — Araçatuba, SP</span>
+        </div>
+        <h1 class="h-title" style="font-family: 'Lora', serif; font-size: clamp(44px, 5.5vw, 70px); font-weight: 700; color: #2a3330; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 24px;">Douglas<br>Migliorucci</h1>
+        <p class="h-tag" style="font-size: clamp(16px, 1.8vw, 19px); color: #718c93; line-height: 1.68; max-width: 440px; margin-bottom: 40px; font-weight: 300;">Uma psicologia que compreende a relação entre quem você é e o mundo em que você vive — para transformar comportamentos e ampliar qualidade de vida.</p>
+        <div class="h-cta" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+          <a href="https://wa.me/5518991288889?text=Ol%C3%A1%2C%20Douglas!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" style="display: inline-block; background: #dd6d5c; color: #fff; font-size: 16px; font-weight: 500; padding: 14px 32px; border-radius: 4px;" style-hover="background: #c4614f;">Agende uma conversa</a>
+          <a href="#atuacao" style="font-size: 15px; color: #3e7180; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;" style-hover="color: #416062;">
+            Saiba mais
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        </div>
+        <p class="h-crp" style="margin-top: 28px; font-size: 12px; color: #97aba6; letter-spacing: 0.04em;">CRP 06/188052</p>
+      </div>
+      <!-- Photo -->
+      <div class="h-photo" style="position: relative;">
+        <div style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; position: relative;">
+          <img src="uploads/pasted-1783545822627-0.png" alt="Douglas Migliorucci — Psicólogo Clínico" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
+        </div>
+        <div style="position: absolute; bottom: -16px; right: -16px; width: 72px; height: 72px; border: 2px solid #d49f94; border-radius: 3px; z-index: -1; pointer-events: none;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRAJETÓRIA ────────────────────────────────────── -->
+<section style="background: #faf9f6; padding: 96px 0;" data-animate="true">
+  <div class="wrap">
+    <div class="about-grid">
+      <!-- Timeline -->
+      <div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 40px;">
+          <span style="display: inline-block; width: 20px; height: 1px; background: #3e7180;"></span>
+          <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #3e7180; font-weight: 500;">Trajetória</span>
+        </div>
+        <!-- Item 1 -->
+        <div style="display: flex; gap: 18px; padding-bottom: 28px;">
+          <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: #97aba6; margin-top: 4px; flex-shrink: 0;"></div>
+            <div style="width: 1px; flex: 1; background: #e0d9d0; margin-top: 6px;"></div>
+          </div>
+          <div>
+            <div style="font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: #416062; margin-bottom: 4px;">Psicologia Organizacional</div>
+            <div style="font-size: 13px; color: #97aba6; line-height: 1.55;">Dinâmica de grupos, comportamento humano em ambientes corporativos.</div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div style="display: flex; gap: 18px; padding-bottom: 28px;">
+          <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: #97aba6; margin-top: 4px; flex-shrink: 0;"></div>
+            <div style="width: 1px; flex: 1; background: #e0d9d0; margin-top: 6px;"></div>
+          </div>
+          <div>
+            <div style="font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: #416062; margin-bottom: 4px;">Atenção Primária — SUS</div>
+            <div style="font-size: 13px; color: #97aba6; line-height: 1.55;">Saúde pública, acolhimento de demandas complexas e diversas.</div>
+          </div>
+        </div>
+        <!-- Item 3 (active) -->
+        <div style="display: flex; gap: 18px;">
+          <div style="flex-shrink: 0; padding-top: 3px;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #3e7180;"></div>
+          </div>
+          <div>
+            <div style="font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: #3e7180; margin-bottom: 4px;">Prática Clínica Atual</div>
+            <div style="font-size: 13px; color: #97aba6; line-height: 1.55;">ABA para autismo infantil e clínica para adolescentes e adultos.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Narrative -->
+      <div>
+        <h2 style="font-family: 'Lora', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 600; color: #2a3330; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 32px;">Da gestão de pessoas ao SUS — e depois à clínica. Uma visão que poucas trajetórias formam.</h2>
+        <p style="font-size: 16px; color: #4a5550; line-height: 1.78; margin-bottom: 20px;">A formação de Douglas percorreu territórios que poucos psicólogos atravessam. Começou pela Psicologia Organizacional, onde desenvolveu uma visão aprofundada sobre dinâmica de grupos e sobre como o ambiente molda comportamentos coletivos.</p>
+        <p style="font-size: 16px; color: #4a5550; line-height: 1.78; margin-bottom: 20px;">Depois, foi para a linha de frente da saúde pública — a Atenção Primária pelo SUS —, onde o encontro com demandas complexas e histórias diversas construiu uma escuta mais ampla, mais humana e menos protocolar.</p>
+        <p style="font-size: 16px; color: #4a5550; line-height: 1.78;">Hoje, essa pluralidade de experiências informa uma prática clínica rigorosa: dedicada ao desenvolvimento de crianças autistas e ao acompanhamento de adolescentes e adultos em suas questões emocionais e comportamentais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DOIS PILARES ──────────────────────────────────── -->
+<section id="atuacao" style="background: #edeae4; padding: 96px 0;" data-animate="true">
+  <div class="wrap">
+    <div class="section-center">
+      <div class="label-row">
+        <span style="display: inline-block; width: 20px; height: 1px; background: #3e7180;"></span>
+        <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #3e7180; font-weight: 500;">Áreas de Atuação</span>
+        <span style="display: inline-block; width: 20px; height: 1px; background: #3e7180;"></span>
+      </div>
+      <h2 style="font-family: 'Lora', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 600; color: #2a3330; line-height: 1.2; letter-spacing: -0.02em;">Dois pilares de cuidado</h2>
+    </div>
+    <div class="pillars-grid">
+      <!-- Pilar ABA -->
+      <div style="background: #fff; border-radius: 6px; padding: 48px 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #3e7180;"></div>
+        <div style="width: 46px; height: 46px; background: #edeae4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="7" r="4" stroke="#3e7180" stroke-width="1.4"></circle>
+            <path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#3e7180" stroke-width="1.4" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div style="font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #97aba6; font-weight: 500; margin-bottom: 10px;">Intervenção em ABA</div>
+        <h3 style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600; color: #2a3330; line-height: 1.25; margin-bottom: 16px;">Autismo e<br>desenvolvimento infantil</h3>
+        <p style="font-size: 15px; color: #4a5550; line-height: 1.72; margin-bottom: 28px;">Com pós-graduação em ABA (Análise do Comportamento Aplicada), Douglas atua no suporte a crianças autistas e suas famílias. O foco está no desenvolvimento de autonomia, comunicação e qualidade de vida — com intervenções estruturadas e baseadas em evidências.</p>
+        <div style="border-top: 1px solid #edeae4; padding-top: 20px;">
+          <div style="font-size: 10px; color: #97aba6; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Para quem</div>
+          <div style="font-size: 14px; color: #416062; font-weight: 500;">Crianças autistas e suas famílias</div>
+        </div>
+      </div>
+      <!-- Pilar Clínica -->
+      <div style="background: #fff; border-radius: 6px; padding: 48px 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #dd6d5c;"></div>
+        <div style="width: 46px; height: 46px; background: #edeae4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 28px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2a8 8 0 1 0 0 16A8 8 0 0 0 10 2z" stroke="#dd6d5c" stroke-width="1.3" fill="none"></path>
+            <path d="M6.5 10 Q10 6.5 13.5 10 Q10 13.5 6.5 10Z" stroke="#dd6d5c" stroke-width="1.2" fill="none"></path>
+          </svg>
+        </div>
+        <div style="font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #d49f94; font-weight: 500; margin-bottom: 10px;">Clínica Particular</div>
+        <h3 style="font-family: 'Lora', serif; font-size: 23px; font-weight: 600; color: #2a3330; line-height: 1.25; margin-bottom: 16px;">Adolescentes<br>e adultos</h3>
+        <p style="font-size: 15px; color: #4a5550; line-height: 1.72; margin-bottom: 28px;">Na clínica, o trabalho é voltado a questões emocionais e comportamentais: ansiedade, padrões que se repetem, dificuldade em agir de acordo com o que importa. Com estratégias baseadas em evidências, o objetivo é ampliar repertório e qualidade de vida de forma concreta.</p>
+        <div style="border-top: 1px solid #edeae4; padding-top: 20px;">
+          <div style="font-size: 10px; color: #97aba6; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">Para quem</div>
+          <div style="font-size: 14px; color: #dd6d5c; font-weight: 500;">Adolescentes e adultos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MÉTODO ─────────────────────────────────────────── -->
+<section id="metodo" style="background: #decfc1; padding: 96px 0;" data-animate="true">
+  <div class="wrap">
+    <div class="method-grid">
+      <!-- Left -->
+      <div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px;">
+          <span style="display: inline-block; width: 20px; height: 1px; background: #416062;"></span>
+          <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #416062; font-weight: 500;">Abordagem</span>
+        </div>
+        <h2 style="font-family: 'Lora', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 600; color: #2a3330; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 28px;">Como o trabalho é conduzido</h2>
+        <p style="font-size: 16px; color: #4a5550; line-height: 1.78; margin-bottom: 20px;">A base teórica é a <strong style="color: #2a3330; font-weight: 600;">Análise do Comportamento</strong> — uma abordagem científica que entende o comportamento humano como resultado da relação entre o indivíduo e seu contexto. Não se trata apenas de mudar o que você faz, mas de compreender <em>por que</em> você faz — e o que o ambiente tem a ver com isso.</p>
+        <p style="font-size: 16px; color: #4a5550; line-height: 1.78;">A isso, alia-se a <strong style="color: #2a3330; font-weight: 600;">ACT — Terapia de Aceitação e Compromisso</strong>: uma terapia de terceira geração, baseada em evidências, que trabalha com clareza de valores, flexibilidade psicológica e ação comprometida com o que é genuinamente importante para você.</p>
+      </div>
+      <!-- Right: cards -->
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="background: rgba(255,255,255,0.52); border-radius: 6px; padding: 28px 32px;">
+          <div style="font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: #416062; margin-bottom: 8px;">Análise do Comportamento</div>
+          <p style="font-size: 14px; color: #4a5550; line-height: 1.68;">Ciência com décadas de evidência. Identifica relações entre contexto, ação e consequência — criando clareza sobre o que mantém padrões e o que pode transformá-los.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.52); border-radius: 6px; padding: 28px 32px;">
+          <div style="font-family: 'Lora', serif; font-size: 17px; font-weight: 600; color: #416062; margin-bottom: 8px;">ACT — Aceitação e Compromisso</div>
+          <p style="font-size: 14px; color: #4a5550; line-height: 1.68;">Flexibilidade psicológica como caminho. Em vez de combater pensamentos e emoções difíceis, você aprende a agir de acordo com o que realmente importa.</p>
+        </div>
+        <div style="background: rgba(65,96,98,0.09); border-radius: 6px; padding: 20px 28px; display: flex; align-items: center; gap: 12px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0;">
+            <circle cx="10" cy="10" r="8.5" stroke="#3e7180" stroke-width="1.2"></circle>
+            <path d="M6.5 10l2.5 2.5 4-4" stroke="#3e7180" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span style="font-size: 13px; color: #416062; font-weight: 500; line-height: 1.45;">Prática fundamentada em evidência científica, não em intuição ou modismo.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CREDENCIAIS ───────────────────────────────────── -->
+<section style="background: #faf9f6; padding: 80px 0;" data-animate="true">
+  <div class="wrap">
+    <div class="section-center">
+      <div class="label-row">
+        <span style="display: inline-block; width: 20px; height: 1px; background: #3e7180;"></span>
+        <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #3e7180; font-weight: 500;">Formação e Credenciais</span>
+        <span style="display: inline-block; width: 20px; height: 1px; background: #3e7180;"></span>
+      </div>
+    </div>
+    <div class="creds-grid">
+      <div style="border: 1px solid #e4e0d9; border-radius: 6px; padding: 28px 24px;">
+        <div style="font-family: 'Lora', serif; font-size: 30px; font-weight: 700; color: #3e7180; line-height: 1; margin-bottom: 12px;">CRP</div>
+        <div style="font-size: 15px; font-weight: 500; color: #2a3330; margin-bottom: 4px;">CRP 06/188052</div>
+        <div style="font-size: 13px; color: #97aba6; line-height: 1.5;">Registro no Conselho Regional de Psicologia</div>
+      </div>
+      <div style="border: 1px solid #e4e0d9; border-radius: 6px; padding: 28px 24px;">
+        <div style="font-family: 'Lora', serif; font-size: 30px; font-weight: 700; color: #3e7180; line-height: 1; margin-bottom: 12px;">ABA</div>
+        <div style="font-size: 15px; font-weight: 500; color: #2a3330; margin-bottom: 4px;">Pós-graduação em ABA</div>
+        <div style="font-size: 13px; color: #97aba6; line-height: 1.5;">Análise do Comportamento Aplicada ao Autismo</div>
+      </div>
+      <div style="border: 1px solid #e4e0d9; border-radius: 6px; padding: 28px 24px;">
+        <div style="font-family: 'Lora', serif; font-size: 30px; font-weight: 700; color: #dd6d5c; line-height: 1; margin-bottom: 12px;">ACT</div>
+        <div style="font-size: 15px; font-weight: 500; color: #2a3330; margin-bottom: 4px;">Terapia de Aceitação e Compromisso</div>
+        <div style="font-size: 13px; color: #97aba6; line-height: 1.5;">Abordagem de 3ª geração baseada em evidências</div>
+      </div>
+      <div style="border: 1px solid #e4e0d9; border-radius: 6px; padding: 28px 24px;">
+        <div style="font-family: 'Lora', serif; font-size: 30px; font-weight: 700; color: #97aba6; line-height: 1; margin-bottom: 12px;">SUS</div>
+        <div style="font-size: 15px; font-weight: 500; color: #2a3330; margin-bottom: 4px;">Atenção Primária à Saúde</div>
+        <div style="font-size: 13px; color: #97aba6; line-height: 1.5;">Experiência em saúde pública e acolhimento de demandas complexas</div>
+      </div>
+      <div style="border: 1px solid #e4e0d9; border-radius: 6px; padding: 28px 24px;">
+        <div style="font-family: 'Lora', serif; font-size: 30px; font-weight: 700; color: #97aba6; line-height: 1; margin-bottom: 12px;">Org.</div>
+        <div style="font-size: 15px; font-weight: 500; color: #2a3330; margin-bottom: 4px;">Psicologia Organizacional</div>
+        <div style="font-size: 13px; color: #97aba6; line-height: 1.5;">Comportamento humano em contextos corporativos e gestão de grupos</div>
+      </div>
+      <div style="border: 1px solid #e4e0d9; border-radius: 6px; padding: 28px 24px; background: #edeae4; display: flex; flex-direction: column; justify-content: center;">
+        <p style="font-size: 15px; color: #718c93; line-height: 1.65; font-style: italic; font-family: 'Lora', serif; margin-bottom: 16px;">"A psicologia que transforma é aquela que compreende as relações entre o indivíduo e seu ambiente."</p>
+        <div style="font-size: 12px; color: #97aba6; letter-spacing: 0.03em;">— Douglas Migliorucci</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ATENDIMENTO ───────────────────────────────────── -->
+<section id="atendimento" style="background: #3e7180; padding: 80px 0;" data-animate="true">
+  <div class="wrap">
+    <div class="atend-grid">
+      <div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px;">
+          <span style="display: inline-block; width: 20px; height: 1px; background: rgba(255,255,255,0.35);"></span>
+          <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 500;">Localização e Formato</span>
+        </div>
+        <h2 style="font-family: 'Lora', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 600; color: #fff; line-height: 1.2; letter-spacing: -0.025em; margin-bottom: 16px;">Atendimento em Araçatuba — e online.</h2>
+        <p style="font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.68;">Consultas presenciais disponíveis em horários específicos — consulte a disponibilidade ao agendar. O atendimento online oferece maior flexibilidade de agenda, sem perda de qualidade ou vínculo terapêutico.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="background: rgba(255,255,255,0.1); border-radius: 6px; padding: 28px 32px; display: flex; gap: 20px; align-items: flex-start;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0; margin-top: 2px;">
+            <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" fill="none"></path>
+            <circle cx="12" cy="9" r="2.5" stroke="rgba(255,255,255,0.75)" stroke-width="1.5"></circle>
+          </svg>
+          <div>
+            <div style="font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px;">Presencial — Araçatuba, SP</div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.55;">Horários presenciais específicos — consulte a disponibilidade ao agendar sua consulta.</div>
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); border-radius: 6px; padding: 28px 32px; display: flex; gap: 20px; align-items: flex-start;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0; margin-top: 2px;">
+            <rect x="2" y="7" width="20" height="13" rx="2" stroke="rgba(255,255,255,0.75)" stroke-width="1.5"></rect>
+            <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="rgba(255,255,255,0.75)" stroke-width="1.5"></path>
+            <circle cx="12" cy="13.5" r="1.5" fill="rgba(255,255,255,0.75)"></circle>
+          </svg>
+          <div>
+            <div style="font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px;">Online — Todo o Brasil</div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.55;">Videoconferência com horários mais flexíveis, para se adaptar à sua rotina.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ─────────────────────────────────────── -->
+<section id="agendar" style="background: #416062; padding: 96px 0;" data-animate="true">
+  <div class="wrap">
+    <div class="cta-inner">
+      <svg width="34" height="44" viewBox="0 0 24 32" fill="none" style="margin: 0 auto 32px; opacity: 0.5; display: block;">
+        <line x1="12" y1="9" x2="12" y2="30" stroke="#d4b6a0" stroke-width="2" stroke-linecap="round"></line>
+        <path d="M6 12 L6 8 M12 10 L12 4 M18 12 L18 8" stroke="#d4b6a0" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M6 8 Q12 6 18 8" stroke="#d4b6a0" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+        <path d="M12 13 C18 17 18 21 12 25 C6 29 6 30 12 30" stroke="#decfc1" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+      </svg>
+      <h2 style="font-family: 'Lora', serif; font-size: clamp(34px, 4vw, 54px); font-weight: 600; color: #edeae4; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 20px;">Dê o primeiro passo.</h2>
+      <p style="font-size: 17px; color: rgba(237,234,228,0.65); line-height: 1.68; margin-bottom: 48px;">Agendar uma consulta é o início de um processo que pode transformar a sua relação com o que você pensa, sente e faz. Fale diretamente com Douglas pelo WhatsApp.</p>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+        <a href="https://wa.me/5518991288889?text=Ol%C3%A1%2C%20Douglas!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #dd6d5c; color: #fff; font-size: 17px; font-weight: 500; padding: 16px 40px; border-radius: 4px; width: 100%; max-width: 360px; text-align: center;" style-hover="background: #c4614f;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <div style="font-size: 13px; color: rgba(237,234,228,0.5);">(18) 99128-8889</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer style="background: #2a3330; padding: 48px 0;">
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="logo-link">
+        <svg width="20" height="26" viewBox="0 0 24 32" fill="none">
+          <line x1="12" y1="9" x2="12" y2="30" stroke="#97aba6" stroke-width="2" stroke-linecap="round"></line>
+          <path d="M6 12 L6 8 M12 10 L12 4 M18 12 L18 8" stroke="#97aba6" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M6 8 Q12 6 18 8" stroke="#97aba6" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+          <path d="M12 13 C18 17 18 21 12 25 C6 29 6 30 12 30" stroke="#718c93" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+        </svg>
+        <div>
+          <div style="font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: #edeae4; line-height: 1.1; letter-spacing: -0.02em;">Douglas Migliorucci</div>
+          <div style="font-size: 9px; color: #718c93; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px;">Psicólogo</div>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/psidouglasmigliorucci" target="_blank" style="font-size: 13px; color: #97aba6;" style-hover="color: #edeae4;">Instagram</a>
+        <a href="https://linkedin.com/in/douglas-migliorucci/" target="_blank" style="font-size: 13px; color: #97aba6;" style-hover="color: #edeae4;">LinkedIn</a>
+        <a href="https://wa.me/5518991288889" target="_blank" style="font-size: 13px; color: #97aba6;" style-hover="color: #edeae4;">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div style="font-size: 13px; color: #4a5550; line-height: 1.5;">Douglas Migliorucci — Psicólogo | <span style="color: #718c93;">CRP 06/188052</span> | Araçatuba, SP</div>
+      <div style="font-size: 12px; color: #4a5550;">© 2025</div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      observer.observe(el);
+    });
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
